@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content%}
+<h1>Show</h1>
+
+{% for i in show_user %}
+ {{ i.email }}
+<br><br>
+{% endfor %}
+
+<h1>The end</h1>
+
+
+
+{% endblock%}
