@@ -1,0 +1,28 @@
+body{
+color:#1864ab;
+background-color:#f1f3f5;
+font-size:40px;
+
+}
+.navbar{
+margin-bottom:5%;
+}
+
+
+
+.content{
+padding:5%;
+margin:5%;
+}
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+}
