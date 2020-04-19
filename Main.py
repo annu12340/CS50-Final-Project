@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, logging, url_for
 from flask_sqlalchemy import SQLAlchemy
 from helper import *
-import yfinance as yf
+import json
 
 app = Flask(__name__)
 
@@ -69,14 +69,20 @@ def quote():
         print("mehtiod is", request.method)
         if not request.form.get("quote"):
             return apology("no quote provided")
+        symbol='FB'
+        base_url = 'https://financialmodelingprep.com/api/v3/stock/real-time-price/'
 
-        symbol = request.args.get('symbol', default="AAPL")
+        content = urllib.urlopen(base_url + symbol).read()
 
-        # pull the stock quote
-        quote = yf.Ticker(symbol)
+        print ("content is ", content)
 
-        # return the object via the HTTP Response
-        return quote.info
+        print ("m is ", content.symbol, " price",  content.price)
+        if content:
+            #quote = .group(1)
+            pass
+        else:
+            quote = 'no quote available for: ' + symbol
+        return quote
 
         if quote == None:
             return apology("invalid symbol", 400)
