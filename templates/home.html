@@ -4,4 +4,25 @@
 {% block content%}
 <h1>Home page</h1>
 
+<div>Hello {{user}}</div>
+
+ <table class="table table-striped table-hover">
+        <thead>
+            <th scope="col">Symbol</th>
+            <th scope="col">Total Shares</th>
+            <th scope="col">Average Price</th>
+            <th scope="col">Current Price</th>
+            <th scope="col">TOTAL Value</th>
+        </thead>
+        <tbody>
+{% for i in range(3) %}
+
+ {{stock.id}} {{ stock.name }} -- qty : {{stock.qty}}
+
+<br><br>
+<hr>
+{% endfor %}
+        </tbody>
+    </table>
+
 {% endblock%}

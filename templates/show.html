@@ -4,8 +4,11 @@
 <h1>Show</h1>
 
 {% for i in show_user %}
- {{ i.email }}
+
+ {{i.id}} {{ i.email }} -- cash : {{i.cash_in_hand}}
+<br> Stock is {{i.stock}}
 <br><br>
+<hr>
 {% endfor %}
 
 <h1>The end</h1>

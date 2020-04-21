@@ -13,4 +13,16 @@
 
   <button type="submit" class="btn btn-dark">Quote</button>
 </form>
+
+
+
+<div>
+    <br><br>
+
+    {% if quote %}
+    <h3> Price is $ {{ quote }}</h3>
+    {%endif %}
+</div>
+
+
 {% endblock%}
