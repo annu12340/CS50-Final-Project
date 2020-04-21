@@ -1,0 +1,9 @@
+{% extends "base.html"%} {% block content%}
+<h1>stock</h1> {% for i in stock %} {{i.id}} {{ i.name }} -- qty : {{i.qty}}
+<br>Owned by {{i.owner_id}}
+
+<br>
+<br>
+<hr> {% endfor %}
+
+<h1>The end</h1> {% endblock%}

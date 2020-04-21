@@ -1,18 +1,26 @@
 {% extends "base.html"%}
-
 {% block content%}
-<h1>Sell</h1>
-<form action=""  method="post">
-      <div class="form-group">
 
-    <input type="text" name="symbol" class="form-control" placeholder="Enter symbol">
+<div class="row">
 
-  </div>
-      <div class="form-group">
-    <input type="number" name="shares"class="form-control"  placeholder="shares">
-  </div>
+    <div class="col-6">
+        <img src="/static/sell.png" alt="" height="450">
+    </div>
+    <div class="col-6">
+        <h1>Sell</h1>
+        <form action="" method="post">
+            <div class="form-group">
 
+                <input type="text" name="symbol" class="form-control" placeholder="Enter symbol">
 
-  <button type="submit" class="btn btn-dark text-center">Sell</button>
-</form>
+            </div>
+            <div class="form-group">
+                <input type="number" name="shares" class="form-control" placeholder="shares">
+            </div>
+
+            <button type="submit" class="btn btn-dark text-center">Sell</button>
+        </form>
+    </div>
+
+</div>
 {% endblock%}

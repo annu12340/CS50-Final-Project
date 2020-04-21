@@ -5,20 +5,22 @@ font-size:40px;
 
 }
 .navbar{
-margin-bottom:5%;
+margin-bottom:1%;
 }
 
 
-
 .content{
-padding:5%;
+padding:2%;
 margin:5%;
+
 }
 
 
 
 .footer {
   position: fixed;
+  height:10%;
+  top:95%;
   left: 0;
   bottom: 0;
   width: 100%;

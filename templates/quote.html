@@ -1,28 +1,28 @@
-
-{% extends "base.html"%}
-
-{% block content%}
+ {% extends "base.html"%}
+ {% block content%}
 <h1>Quote</h1>
-<form action=""  method="post">
-      <div class="form-group">
+<div class="row">
+    <div class="col-6">
+        <form action="" method="post">
+            <div class="form-group">
 
-    <input type="text" name="quote" class="form-control" placeholder="Enter company name">
+                <input type="text" name="quote" class="form-control" placeholder="Enter company name">
 
-  </div>
+            </div>
 
+            <button type="submit" class="btn btn-dark">Quote</button>
+        </form>
 
-  <button type="submit" class="btn btn-dark">Quote</button>
-</form>
+        <div>
+            <br>
+            <br> {% if quote %}
+            <h3> Price is $ {{ quote }}</h3> {%endif %}
+        </div>
 
-
-
-<div>
-    <br><br>
-
-    {% if quote %}
-    <h3> Price is $ {{ quote }}</h3>
-    {%endif %}
+    </div>
+    <div class="col-6">
+        <img src="/static/quote.png" alt="" width="600" height="450">
+    </div>
 </div>
-
 
 {% endblock%}

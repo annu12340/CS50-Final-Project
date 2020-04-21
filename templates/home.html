@@ -1,28 +1,46 @@
-
-{% extends "base.html"%}
-
-{% block content%}
+ {% extends "base.html"%} {% block content%}
 <h1>Home page</h1>
 
-<div>Hello {{user}}</div>
+<div class="row">
+    <div class="col-7">
+        <table class="table table-striped table-hover">
+            <thead>
+                <th scope="col">Symbol</th>
+                <th scope="col">Total Shares</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">TOTAL Value</th>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for t in stock %} {% if t.owner_id == user%}
 
- <table class="table table-striped table-hover">
-        <thead>
-            <th scope="col">Symbol</th>
-            <th scope="col">Total Shares</th>
-            <th scope="col">Average Price</th>
-            <th scope="col">Current Price</th>
-            <th scope="col">TOTAL Value</th>
-        </thead>
-        <tbody>
-{% for i in range(3) %}
+                    <th scope="row">{{ t.name }}</th>
+                    <td>{{t.qty }}</td>
+                    <td>{{t.price }}</td>
+                    <td>{{t.qty * t.price }}</td>
 
- {{stock.id}} {{ stock.name }} -- qty : {{stock.qty}}
+                </tr>
+                {% endif %} {% endfor %}
+                <tr>
+                    <td>CASH</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{cash}}</td>
+                </tr>
+                <tr>
 
-<br><br>
-<hr>
-{% endfor %}
-        </tbody>
-    </table>
+                    <td></td>
+                    <td></td>
+                     <td></td>
+                        <td><b>500</b></td>
+                </tr>
 
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-5">
+        <img src="/static/homePg.png" alt="" height="400">
+    </div>
+</div>
 {% endblock%}
