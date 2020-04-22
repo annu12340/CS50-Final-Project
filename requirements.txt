@@ -6,15 +6,12 @@ django-request==1.5.5
 Flask==1.1.2
 Flask-SQLAlchemy==2.4.1
 get==2019.4.13
-gunicorn==19.10.0
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
 lxml==4.5.0
 MarkupSafe==1.1.1
 multitasking==0.0.9
-numpy==1.16.6
-pandas==0.24.2
 post==2019.4.13
 public==2019.4.13
 python-dateutil==2.8.1
