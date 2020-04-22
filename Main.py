@@ -10,6 +10,7 @@ import json
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+app.config['SECRET_KEY'] = 'the random string'    
 db = SQLAlchemy(app)
 
 
@@ -240,6 +241,6 @@ def history():
 
 
 if __name__ == '__main__':
-    app.secret_key = 'super secret key'
+    #Added secret key that the top app.secret_key = 'super secret key'
     db.create_all()
     app.run(debug=True)
