@@ -4,6 +4,7 @@ import urllib
 from flask import Flask, render_template, request, redirect, session, \
     url_for
 from flask_sqlalchemy import SQLAlchemy
+from passlib.context import CryptContext
 
 import json
 
@@ -39,6 +40,19 @@ class Transcation(db.Model):
     name = db.Column(db.String(50))
     qty = db.Column(db.Integer)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+
+#function for password encrypt
+def encrypt_password(password):
+
+    pwd_context = CryptContext(
+        schemes=["pbkdf2_sha256"],
+        default="pbkdf2_sha256",
+        pbkdf2_sha256__default_rounds=30000
+    )
+
+    return pwd_context.encrypt(password)
 
 
 def getQuotePrice(symbol):
