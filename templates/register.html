@@ -7,6 +7,32 @@
     <link rel="stylesheet" href="/static/base.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <style>
+    	.icon-wrapper{
+			
+			display: inline;
+			float: right;
+			
+			}
+
+			.ion-eye,
+			.ion-more{
+				
+				position: relative;
+				top: -25px;
+				float: right;
+				right: 20px;
+				cursor: pointer;
+				}
+			@media only screen and (max-width:768px) {
+            .img-fluid{
+                display: none;
+            }
+        }	
+		
+    </style>
+
 </head>
 
 <body>
@@ -45,7 +71,8 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" name="password" class="form-control icon-wrapper input" id="exampleInputPassword1" placeholder="Password">
+                        <span toggle="#exampleInputPassword1" onclick="myFunction()" class="ion ion-eye field-icon toggle-password"></span>
                     </div>
 
                     <button type="submit" class="btn btn-dark">Submit</button>
@@ -60,5 +87,15 @@
         </div>
 
 </body>
+<script>
+    	function myFunction() {
+  var x = document.getElementById("exampleInputPassword1");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+    </script>
 
 </html>
