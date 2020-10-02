@@ -67,7 +67,7 @@ def login():
 
         if data is not None:
             session['user'] = data.id
-            print session['user']
+            print (session['user'])
             return redirect(url_for('home'))
         return render_template('incorrect_login.html')
 
@@ -170,7 +170,7 @@ def buy():
                     print ('new stock', new_stock)
                     db.session.add(new_stock)
                     db.session.commit()
-                    print 'commited'
+                    print ('commited')
                 new_transcation = Transcation(type='Bought',name=symbol, qty=shares, owner_id=u.id)
                 db.session.add(new_transcation)
                 db.session.commit()
