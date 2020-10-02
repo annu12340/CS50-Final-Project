@@ -4,6 +4,7 @@ import urllib
 from flask import Flask, render_template, request, redirect, session, \
     url_for
 from flask_sqlalchemy import SQLAlchemy
+from argon2 import PasswordHasher
 
 import json
 
@@ -12,13 +13,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SECRET_KEY'] = 'the random string'    
 db = SQLAlchemy(app)
-
+ph = PasswordHasher()
 
 class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50))
-    password = db.Column(db.String(50))
+    password = db.Column(db.String(100))
     cash_in_hand = db.Column(db.Integer, default=500)
     stock = db.relationship('Stock', backref='owner')
 
@@ -60,23 +61,28 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
-        email = request.form['email']
-        password = request.form['password']
-        data = User.query.filter_by(email=email,
-                                    password=password).first()
 
-        if data is not None:
-            session['user'] = data.id
-            print (session['user'])
-            return redirect(url_for('home'))
-        return render_template('incorrect_login.html')
+        try:
+            email = request.form['email']
+            password = request.form['password']
+            data = User.query.filter_by(email=email).first()
+            
+            if (data is not None) and ph.verify(data.password, password):
+                session['user'] = data.id
+                print (session['user'])
+                return redirect(url_for('home'))
+            return render_template('incorrect_login.html')
+        except:
+            return render_template('incorrect_login.html')
+
 
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        hashedPassword = ph.hash(request.form['password'])
         new_user = User(email=request.form['email'],
-                        password=request.form['password'])
+                        password=hashedPassword)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('login'))
