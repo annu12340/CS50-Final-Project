@@ -61,6 +61,7 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     else:
+
         try:
             email = request.form['email']
             password = request.form['password']
@@ -68,11 +69,12 @@ def login():
             
             if (data is not None) and ph.verify(data.password, password):
                 session['user'] = data.id
-                print session['user']
+                print (session['user'])
                 return redirect(url_for('home'))
             return render_template('incorrect_login.html')
         except:
             return render_template('incorrect_login.html')
+
 
 
 @app.route('/register/', methods=['GET', 'POST'])
@@ -174,7 +176,7 @@ def buy():
                     print ('new stock', new_stock)
                     db.session.add(new_stock)
                     db.session.commit()
-                    print 'commited'
+                    print ('commited')
                 new_transcation = Transcation(type='Bought',name=symbol, qty=shares, owner_id=u.id)
                 db.session.add(new_transcation)
                 db.session.commit()
