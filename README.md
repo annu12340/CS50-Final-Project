@@ -33,7 +33,7 @@ https://youtu.be/nmdu_K3gk1E
 * Python
 * Flask
 * SQLAlchemy
-(Other dependancies can be found out in te requirements.txt file)
+(Other dependencies can be found out in the requirements.txt file)
 
 ## Installation-
 
@@ -41,6 +41,6 @@ https://youtu.be/nmdu_K3gk1E
 
 2] Run the command `pip install -r requirements.txt`
 
-3] Once all the dependancies have been installed, run the command `python Main.py`
+3] Once all the dependencies have been installed, run the command `python Main.py`
 
 4] This should start a local server and you can access it on your browser.
